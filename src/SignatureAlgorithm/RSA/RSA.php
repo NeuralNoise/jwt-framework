@@ -58,5 +58,10 @@ abstract class RSA implements SignatureAlgorithm
                 throw new \InvalidArgumentException(\sprintf('The key parameter "%s" is missing.', $k));
             }
         }
+
+        $n = $key->get('n');
+        if (mb_strlen($n, '8bit') < 256) {
+            throw new \InvalidArgumentException('Invalid key length.');
+        }
     }
 }

@@ -50,7 +50,7 @@ class HMACSignatureTest extends TestCase
     {
         $key = JWK::create([
             'kty' => 'oct',
-            'k' => 'foo',
+            'k' => 'foofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoo',
         ]);
         $hmac = new HS256();
         $data = 'Live long and Prosper.';
@@ -65,14 +65,14 @@ class HMACSignatureTest extends TestCase
     {
         $key = JWK::create([
             'kty' => 'oct',
-            'k' => 'foo',
+            'k' => 'foofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoo',
         ]);
         $hmac = new HS256();
         $data = 'Live long and Prosper.';
 
         $signature = $hmac->sign($key, $data);
 
-        static::assertEquals(\hex2bin('89f750759cb8ad9315d7ec6bd8d5dc5899e0a97bc12f9e355f383776f53f025c'), $signature);
+        static::assertEquals(\hex2bin('7ed268ef179f530a4a1c56225c352a6782cf5379085c484b4f355b6744d6f19d'), $signature);
         static::assertTrue($hmac->verify($key, $data, $signature));
     }
 
@@ -83,14 +83,14 @@ class HMACSignatureTest extends TestCase
     {
         $key = JWK::create([
             'kty' => 'oct',
-            'k' => 'foo',
+            'k' => 'foofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoo',
         ]);
         $hmac = new HS384();
         $data = 'Live long and Prosper.';
 
         $signature = $hmac->sign($key, $data);
 
-        static::assertEquals(\hex2bin('8985f2c6efef1c1b9baf7d7b0b17ce6db65184044bdeaa01296fe6d61900224fc783f4bb7b7aadfdfb4d0663b1284e66'), $signature);
+        static::assertEquals(\hex2bin('903ce2ef2878090d6117f88210d5a822d260fae66760186cb3326770748b9fa47c2d4531a4d5d868f99bcf7ea45c1ab4'), $signature);
         static::assertTrue($hmac->verify($key, $data, $signature));
     }
 
@@ -101,14 +101,14 @@ class HMACSignatureTest extends TestCase
     {
         $key = JWK::create([
             'kty' => 'oct',
-            'k' => 'foo',
+            'k' => 'foofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoo',
         ]);
         $hmac = new HS512();
         $data = 'Live long and Prosper.';
 
         $signature = $hmac->sign($key, $data);
 
-        static::assertEquals(\hex2bin('6f91ca09dc2e655d089f1018fb447f16c68d65f32f54ea84542edb1db5dfbbda141cbb41741b7383a7dff6af56be564fd74a8857eab6a680094bbcb41b2f29e1'), $signature);
+        static::assertEquals(\hex2bin('8819a59bacda92a48419c54ef8c20fa821b5c55ebb1a562ca3ff3c8d6b60e288e8127375ce8a5e327f840de4575c4bf230a97e26167e6f6d57fd5324481c969d'), $signature);
         static::assertTrue($hmac->verify($key, $data, $signature));
     }
 }

@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature\Algorithm;
 
+use Jose\Component\Core\JWK;
+
 final class HS256 extends HMAC
 {
     protected function getHashAlgorithm(): string
@@ -23,5 +25,14 @@ final class HS256 extends HMAC
     public function name(): string
     {
         return 'HS256';
+    }
+
+    protected function checkKey(JWK $key)
+    {
+        parent::checkKey($key);
+        $k = $key->get('k');
+        if (mb_strlen($k, '8bit') < 32) {
+            throw new \InvalidArgumentException('Invalid key length.');
+        }
     }
 }

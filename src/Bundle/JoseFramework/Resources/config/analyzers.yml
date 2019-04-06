@@ -11,3 +11,10 @@ services:
     Jose\Component\KeyManagement\KeyAnalyzer\NoneAnalyzer: ~
     Jose\Component\KeyManagement\KeyAnalyzer\OctAnalyzer: ~
     Jose\Component\KeyManagement\KeyAnalyzer\RsaAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\ES256KeyAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\ES384KeyAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\ES512KeyAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\HS256KeyAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\HS384KeyAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\HS512KeyAnalyzer: ~
+    Jose\Component\KeyManagement\KeyAnalyzer\ZxcvbnAnalyzer: ~
